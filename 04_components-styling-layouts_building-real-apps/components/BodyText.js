@@ -11,6 +11,6 @@ export default BodyText
 
 const styles = StyleSheet.create({
     body: {
-        fontFamily: 'open-sans-bold'
+        fontFamily: 'open-sans'
     }
 })
