@@ -1,13 +1,22 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button, FlatList } from 'react-native'
+import { 
+    StyleSheet, 
+    Text, 
+    View, 
+    FlatList,
+    TouchableOpacity 
+} from 'react-native'
 
 import { CATEGORIES } from '../data/dummy-data';
+import Colors from '../constants/Colors';
 
 const renderGridItem = (itemData) => {
     return (
-        <View style={styles.gridItem}>
-            <Text>{itemData.item.title}</Text>
-        </View>
+        <TouchableOpacity style={styles.gridItem}>
+            <View>
+                <Text>{itemData.item.title}</Text>
+            </View>
+        </TouchableOpacity>
     );
 };
 
@@ -21,6 +30,14 @@ const CategoriesScreen = (props) => {
         />
     )
 }
+
+CategoriesScreen.navigationOptions = {
+    headerTitle: 'Meal Categories',
+    headerStyle: {
+        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+    },
+    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
+};
 
 export default CategoriesScreen
 
